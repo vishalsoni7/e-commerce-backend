@@ -10,7 +10,7 @@ app.use(express.json());
 
 initializeDatabase();
 
-app.use(cors("*"));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("e-commerce");
