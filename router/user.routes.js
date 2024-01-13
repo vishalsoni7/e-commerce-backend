@@ -5,7 +5,7 @@ const { signUp, signIn } = require("../services/user.service");
 
 // userRouter.use(express.json());
 
-userRouter.post("/signup", async (req, res) => {
+userRouter.post("/register", async (req, res) => {
   try {
     const savedUser = await signUp(req.body);
 
@@ -19,7 +19,7 @@ userRouter.post("/signup", async (req, res) => {
   }
 });
 
-userRouter.post("/signin", async (req, res) => {
+userRouter.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await signIn(email, password);
