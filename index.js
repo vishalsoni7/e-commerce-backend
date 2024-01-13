@@ -10,7 +10,12 @@ app.use(express.json());
 
 initializeDatabase();
 
-app.use(cors());
+const corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
   res.send("e-commerce");
