@@ -8,8 +8,6 @@ const initializeDatabase = () => {
   } else {
     mongoose
       .connect(mongoURI, {
-        // useNewUrlParser: true,
-        // useUnifiedTopology: true,
         serverSelectionTimeoutMS: 5000,
       })
       .then(() => {
