@@ -7,7 +7,10 @@ const userRouter = require("./router/user.routes");
 
 initializeDatabase();
 
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://main--thinsil-e-commerce.netlify.app",
+];
 
 app.use(
   cors({
