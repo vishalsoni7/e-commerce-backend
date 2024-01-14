@@ -7,10 +7,7 @@ const userRouter = require("./router/user.routes");
 
 initializeDatabase();
 
-const allowedOrigins = {
-  origin : 'http://localhost:3000/login',
-  methods : [ 'GET', 'POST', 'GELETE', "PUT" ]
-}
+const allowedOrigins = ["http://localhost:3000"];
 
 app.use(
   cors({
@@ -21,10 +18,9 @@ app.use(
         callback(new Error("Not allowed by CORS"));
       }
     },
+    methods: ["GET", "POST", "DELETE", "PUT"],
   }),
 );
-
-app.use(cors(allowedOrigins));
 
 app.options("/login", cors());
 app.options("/register", cors());
