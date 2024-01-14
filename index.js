@@ -10,11 +10,13 @@ const pruductRouter = require("./router/product.routes");
 
 initializeDatabase();
 
-app.use(
-  cors({
-    origin: "*",
-  }),
-);
+app.use(cors());
+
+// app.use(
+//   cors({
+//     origin: "*",
+//   }),
+// );
 
 app.get("/", (req, res) => {
   res.send("e-commerce");
