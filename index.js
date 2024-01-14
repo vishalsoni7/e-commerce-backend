@@ -3,7 +3,6 @@ const app = express();
 const cors = require("cors");
 
 const initializeDatabase = require("./db");
-
 const userRouter = require("./router/user.routes");
 
 const { signIn } = require("./services/user.service");
@@ -15,7 +14,7 @@ app.use(express.json());
 initializeDatabase();
 
 const corsOptions = {
-  origin: "https://thinsil-e-commerce.netlify.app",
+  origin: "*",
   optionsSuccessStatus: 200,
 };
 
@@ -26,8 +25,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/", userRouter);
-
-// app.use("/destinations", destinationRouter);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
