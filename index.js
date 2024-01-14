@@ -7,28 +7,28 @@ const userRouter = require("./router/user.routes");
 
 initializeDatabase();
 
-// const allowedOrigins = [
-//   "https://thinsil-e-commerce.netlify.app",
-//   "https://localhost:3000",
-// ];
-
-// app.use(
-//   cors({
-//     origin: function (origin, callback) {
-//       if (!origin || allowedOrigins.includes(origin)) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error("Not allowed by CORS"));
-//       }
-//     },
-//   }),
-// );
+const allowedOrigins = [
+  "https://thinsil-e-commerce.netlify.app",
+  "https://localhost:3000",
+];
 
 app.use(
   cors({
-    origin: "*",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
   }),
 );
+
+// app.use(
+//   cors({
+//     origin: "*",
+//   }),
+// );
 
 app.get("/", (req, res) => {
   res.send("e-commerce");
