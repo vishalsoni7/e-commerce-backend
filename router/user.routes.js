@@ -3,7 +3,7 @@ const userRouter = express.Router();
 
 const { signUp, signIn } = require("../services/user.service");
 
-// userRouter.use(express.json());
+userRouter.use(express.json());
 
 userRouter.options("/login", cors());
 
