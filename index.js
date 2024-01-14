@@ -6,12 +6,16 @@ const initializeDatabase = require("./db");
 
 const userRouter = require("./router/user.routes");
 
+const { signIn } = require("./services/user.service");
+
+signIn("user@example.com", "newpassword");
+
 app.use(express.json());
 
 initializeDatabase();
 
 const corsOptions = {
-  origin: "*",
+  origin: "https://thinsil-e-commerce.netlify.app",
   optionsSuccessStatus: 200,
 };
 
