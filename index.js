@@ -24,6 +24,9 @@ app.use(
   }),
 );
 
+app.options("/login", cors());
+app.options("/register", cors());
+
 // app.use(
 //   cors({
 //     origin: "*",
