@@ -1,11 +1,11 @@
 const express = require("express");
 const userRouter = express.Router();
+const cors = require("cors");
+userRouter.options("/login", cors());
 
 const { signUp, signIn } = require("../services/user.service");
 
 userRouter.use(express.json());
-
-userRouter.options("/login", cors());
 
 userRouter.post("/register", async (req, res) => {
   try {
