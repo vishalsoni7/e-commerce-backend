@@ -16,14 +16,14 @@ initializeDatabase();
 //   }),
 // );
 
-const corsOptions = {
-  origin: "*",
-  methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Expose-Headers", "*");
+  next();
+});
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("e-commerce");
