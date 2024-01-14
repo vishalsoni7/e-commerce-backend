@@ -5,6 +5,8 @@ const { signUp, signIn } = require("../services/user.service");
 
 // userRouter.use(express.json());
 
+userRouter.options("/login", cors());
+
 userRouter.post("/register", async (req, res) => {
   try {
     const savedUser = await signUp(req.body);

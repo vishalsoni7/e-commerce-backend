@@ -5,20 +5,19 @@ const cors = require("cors");
 const initializeDatabase = require("./db");
 const userRouter = require("./router/user.routes");
 
-const { signIn } = require("./services/user.service");
-
-signIn("user@example.com", "newpassword");
-
-app.use(express.json());
-
 initializeDatabase();
 
-const corsOptions = {
-  origin: "*",
-  optionsSuccessStatus: 200,
-};
+const allowedOrigins = ['https://thinsil-e-commerce.netlify.app', 'https://localhost:3000']; 
 
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 
 app.get("/", (req, res) => {
   res.send("e-commerce");
