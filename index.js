@@ -7,7 +7,11 @@ const userRouter = require("./router/user.routes");
 
 initializeDatabase();
 
-app.use(cors({ origin: "*" }));
+app.use(
+  cors({
+    origin: "*",
+  }),
+);
 
 app.get("/", (req, res) => {
   res.send("e-commerce");
