@@ -24,14 +24,10 @@ app.use(
   }),
 );
 
+app.use(cors(allowedOrigins));
+
 app.options("/login", cors());
 app.options("/register", cors());
-
-// app.use(
-//   cors({
-//     origin: "*",
-//   }),
-// );
 
 app.get("/", (req, res) => {
   res.send("e-commerce");
